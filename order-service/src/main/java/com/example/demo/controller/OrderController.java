@@ -27,7 +27,6 @@ import com.example.demo.service.OrderService;
 import lombok.AllArgsConstructor;
 
 @RestController
-@RequestMapping(path="api/v1")
 @AllArgsConstructor
 public class OrderController {
 	private OrderService service;

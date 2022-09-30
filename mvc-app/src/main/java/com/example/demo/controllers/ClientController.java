@@ -34,13 +34,13 @@ public class ClientController {
 
 	@RequestMapping(path = "/", method = RequestMethod.GET)
 	public String WelcomePage() {
-		return "index";
+		return "home";
 	}
 	
-	@GetMapping(path =  "/product-section")
-	public String ProductSection() {
-		return "product-section"; 
-	}
+//	@GetMapping(path =  "/product-section")
+//	public String ProductSection() {
+//		return "products"; 
+//	}
 	
 	@GetMapping(path =  "/order-section")
 	public String OrderSection() {
@@ -49,7 +49,7 @@ public class ClientController {
 	
 	@GetMapping(path="/order-section/orders")
 	public String getOrders(Model model) {
-	    ResponseEntity<Order[]> orders  = template.getForEntity("lb://ORDER-SERVICE/list", Order[].class) ;
+	    ResponseEntity<Order[]> orders  = template.getForEntity("lb://ORDER-SERVICE/order", Order[].class) ;
 		model.addAttribute("orders", orders.getBody());
 		return "orders" ; 
 	}
